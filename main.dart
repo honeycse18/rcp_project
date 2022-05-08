@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'lib.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
@@ -23,6 +23,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var sL = MediaQuery.of(context).size.width;
+    //  var sR = MediaQuery.of(context).size.width;
     var playHeight = MediaQuery.of(context).size.height / 6;
     var playWidth = MediaQuery.of(context).size.width / 2;
     return SafeArea(
@@ -48,45 +50,63 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(children: [
             Container(
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  children: [
-                    Icon(Icons.search),
-                    Text("Search"),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-                //banner
-                height: 180.0,
-                width: double.infinity,
-                child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Card(
-                    elevation: 50.0,
-                    child: Image.network(
-                        "https://previews.123rf.com/images/baibakova/baibakova1908/baibakova190800009/128183111-healthy-food-balanced-food-cooking-ingredients-clean-diet-eating-top-view-panorama-banner.jpg"),
-                  ),
-                ))),
-            Container(
-              height: 70.0,
+              //banner
+              height: 100.0,
               width: double.infinity,
-              color: Color.fromARGB(255, 255, 38, 0),
+
               child: Center(
-                child: Text(
-                  "All Playlist For Cooking",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
-                    color: Color.fromARGB(255, 255, 255, 255),
-                  ),
+                child: Card(
+                  //elevation: 50.0,
+                  child: Image.asset("images/c.GIF"),
                 ),
               ),
             ),
-            SizedBox(height: 1.0),
+            Stack(
+              alignment: Alignment.centerRight,
+              children: [
+                Container(
+                  height: 30.0,
+                  width: double.infinity,
+                  color: Color.fromARGB(255, 255, 38, 0),
+                  child: Stack(
+                    alignment: Alignment.centerLeft,
+                    children: [
+                      Container(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        child: Icon(
+                          Icons.playlist_play_outlined,
+                        ),
+                      ),
+                      Positioned(
+                        left: 30.0,
+                        child: Text(
+                          "All Playlist For Cooking",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  //    right: sR / 0.5,
+                  right: sL / 50,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Row(
+                      children: [
+                        Icon(Icons.search),
+                        Text("Search"),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10.0),
 
             //1st column //1st row
             Row(
@@ -99,22 +119,22 @@ class HomePage extends StatelessWidget {
                       height: playHeight,
                       width: playWidth,
                       color: Color.fromARGB(255, 248, 130, 203),
-                      child: Column(
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
                           Container(
+                            height: double.infinity,
+                            width: double.infinity,
                             child: Center(
-                              child: Text("Cake Recipes",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 20, 17, 20),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
+                              child: Image.asset("images/c1.jpg"),
                             ),
                           ),
                           SizedBox(
-                            height: 40.0,
+                            height: 1.0,
                           ),
-                          Container(
+                          Positioned(
+                            bottom: 5.0,
+                            left: 100.0,
                             child: ElevatedButton(
                               onPressed: () {},
                               child: Text("Play All"),
@@ -132,22 +152,22 @@ class HomePage extends StatelessWidget {
                         height: playHeight,
                         width: playWidth,
                         color: Color.fromARGB(255, 248, 130, 203),
-                        child: Column(
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: [
                             Container(
+                              height: double.infinity,
+                              width: double.infinity,
                               child: Center(
-                                child: Text("Dessert items",
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 20, 17, 20),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0,
-                                    )),
+                                child: Image.asset("images/c2.jpg"),
                               ),
                             ),
                             SizedBox(
-                              height: 40.0,
+                              height: 1.0,
                             ),
-                            Container(
+                            Positioned(
+                              bottom: 5.0,
+                              left: 100.0,
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: Text("Play All"),
@@ -162,7 +182,9 @@ class HomePage extends StatelessWidget {
             ),
 
             //2nd column //1st row
-            SizedBox(height: 1.0),
+            SizedBox(height: 10.0),
+
+            SizedBox(height: 10.0),
 
             //1st column //1st row
             Row(
@@ -175,22 +197,22 @@ class HomePage extends StatelessWidget {
                       height: playHeight,
                       width: playWidth,
                       color: Color.fromARGB(255, 248, 130, 203),
-                      child: Column(
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
                           Container(
+                            height: double.infinity,
+                            width: double.infinity,
                             child: Center(
-                              child: Text("Halua Recipes",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 20, 17, 20),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
+                              child: Image.asset("images/c3.jpg"),
                             ),
                           ),
                           SizedBox(
-                            height: 40.0,
+                            height: 1.0,
                           ),
-                          Container(
+                          Positioned(
+                            bottom: 5.0,
+                            left: 100.0,
                             child: ElevatedButton(
                               onPressed: () {},
                               child: Text("Play All"),
@@ -208,22 +230,22 @@ class HomePage extends StatelessWidget {
                         height: playHeight,
                         width: playWidth,
                         color: Color.fromARGB(255, 248, 130, 203),
-                        child: Column(
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: [
                             Container(
+                              height: double.infinity,
+                              width: double.infinity,
                               child: Center(
-                                child: Text("Snacks Items",
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 20, 17, 20),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0,
-                                    )),
+                                child: Image.asset("images/c4.jpg"),
                               ),
                             ),
                             SizedBox(
-                              height: 40.0,
+                              height: 1.0,
                             ),
-                            Container(
+                            Positioned(
+                              bottom: 5.0,
+                              left: 100.0,
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: Text("Play All"),
@@ -236,7 +258,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(width: 6.0),
               ],
             ),
-            SizedBox(height: 1.0),
+            SizedBox(height: 10.0),
 
             //1st column //1st row
             Row(
@@ -249,22 +271,22 @@ class HomePage extends StatelessWidget {
                       height: playHeight,
                       width: playWidth,
                       color: Color.fromARGB(255, 248, 130, 203),
-                      child: Column(
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
                           Container(
+                            height: double.infinity,
+                            width: double.infinity,
                             child: Center(
-                              child: Text("Keto Diet Recipes",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 20, 17, 20),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
+                              child: Image.asset("images/c5.jpg"),
                             ),
                           ),
                           SizedBox(
-                            height: 40.0,
+                            height: 1.0,
                           ),
-                          Container(
+                          Positioned(
+                            bottom: 5.0,
+                            left: 100.0,
                             child: ElevatedButton(
                               onPressed: () {},
                               child: Text("Play All"),
@@ -282,22 +304,22 @@ class HomePage extends StatelessWidget {
                         height: playHeight,
                         width: playWidth,
                         color: Color.fromARGB(255, 248, 130, 203),
-                        child: Column(
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: [
                             Container(
+                              height: double.infinity,
+                              width: double.infinity,
                               child: Center(
-                                child: Text("Rich Food Items",
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 20, 17, 20),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0,
-                                    )),
+                                child: Image.asset("images/c6.jpg"),
                               ),
                             ),
                             SizedBox(
-                              height: 40.0,
+                              height: 1.0,
                             ),
-                            Container(
+                            Positioned(
+                              bottom: 5.0,
+                              left: 100.0,
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: Text("Play All"),
@@ -310,7 +332,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(width: 6.0),
               ],
             ),
-            SizedBox(height: 1.0),
+            SizedBox(height: 10.0),
 
             //1st column //1st row
             Row(
@@ -323,22 +345,22 @@ class HomePage extends StatelessWidget {
                       height: playHeight,
                       width: playWidth,
                       color: Color.fromARGB(255, 248, 130, 203),
-                      child: Column(
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
                           Container(
+                            height: double.infinity,
+                            width: double.infinity,
                             child: Center(
-                              child: Text("Drinks Items",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 20, 17, 20),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
+                              child: Image.asset("images/c7.jpg"),
                             ),
                           ),
                           SizedBox(
-                            height: 40.0,
+                            height: 1.0,
                           ),
-                          Container(
+                          Positioned(
+                            bottom: 5.0,
+                            left: 100.0,
                             child: ElevatedButton(
                               onPressed: () {},
                               child: Text("Play All"),
@@ -356,22 +378,22 @@ class HomePage extends StatelessWidget {
                         height: playHeight,
                         width: playWidth,
                         color: Color.fromARGB(255, 248, 130, 203),
-                        child: Column(
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: [
                             Container(
+                              height: double.infinity,
+                              width: double.infinity,
                               child: Center(
-                                child: Text("Fast Food Items",
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 20, 17, 20),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0,
-                                    )),
+                                child: Image.asset("images/c8.jpg"),
                               ),
                             ),
                             SizedBox(
-                              height: 40.0,
+                              height: 1.0,
                             ),
-                            Container(
+                            Positioned(
+                              bottom: 5.0,
+                              left: 100.0,
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: Text("Play All"),
@@ -384,7 +406,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(width: 6.0),
               ],
             ),
-            SizedBox(height: 1.0),
+            SizedBox(height: 10.0),
 
             //1st column //1st row
             Row(
@@ -397,22 +419,22 @@ class HomePage extends StatelessWidget {
                       height: playHeight,
                       width: playWidth,
                       color: Color.fromARGB(255, 248, 130, 203),
-                      child: Column(
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
                           Container(
+                            height: double.infinity,
+                            width: double.infinity,
                             child: Center(
-                              child: Text("Cooking Tips",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 20, 17, 20),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
+                              child: Image.asset("images/c9.jpg"),
                             ),
                           ),
                           SizedBox(
-                            height: 40.0,
+                            height: 1.0,
                           ),
-                          Container(
+                          Positioned(
+                            bottom: 5.0,
+                            left: 100.0,
                             child: ElevatedButton(
                               onPressed: () {},
                               child: Text("Play All"),
@@ -430,22 +452,22 @@ class HomePage extends StatelessWidget {
                         height: playHeight,
                         width: playWidth,
                         color: Color.fromARGB(255, 248, 130, 203),
-                        child: Column(
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: [
                             Container(
+                              height: double.infinity,
+                              width: double.infinity,
                               child: Center(
-                                child: Text("Sweets items",
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 20, 17, 20),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0,
-                                    )),
+                                child: Image.asset("images/c10.jpg"),
                               ),
                             ),
                             SizedBox(
-                              height: 40.0,
+                              height: 1.0,
                             ),
-                            Container(
+                            Positioned(
+                              bottom: 5.0,
+                              left: 100.0,
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: Text("Play All"),
@@ -458,7 +480,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(width: 6.0),
               ],
             ),
-            SizedBox(height: 1.0),
+            SizedBox(height: 10.0),
 
             //1st column //1st row
             Row(
@@ -471,22 +493,22 @@ class HomePage extends StatelessWidget {
                       height: playHeight,
                       width: playWidth,
                       color: Color.fromARGB(255, 248, 130, 203),
-                      child: Column(
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
                           Container(
+                            height: double.infinity,
+                            width: double.infinity,
                             child: Center(
-                              child: Text("Chinese Items",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 20, 17, 20),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
+                              child: Image.asset("images/c11.jpg"),
                             ),
                           ),
                           SizedBox(
-                            height: 40.0,
+                            height: 1.0,
                           ),
-                          Container(
+                          Positioned(
+                            bottom: 5.0,
+                            left: 100.0,
                             child: ElevatedButton(
                               onPressed: () {},
                               child: Text("Play All"),
@@ -504,22 +526,22 @@ class HomePage extends StatelessWidget {
                         height: playHeight,
                         width: playWidth,
                         color: Color.fromARGB(255, 248, 130, 203),
-                        child: Column(
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: [
                             Container(
+                              height: double.infinity,
+                              width: double.infinity,
                               child: Center(
-                                child: Text("Cookies Items",
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 20, 17, 20),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0,
-                                    )),
+                                child: Image.asset("images/c12.jpg"),
                               ),
                             ),
                             SizedBox(
-                              height: 40.0,
+                              height: 1.0,
                             ),
-                            Container(
+                            Positioned(
+                              bottom: 5.0,
+                              left: 100.0,
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: Text("Play All"),
@@ -532,6 +554,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(width: 6.0),
               ],
             ),
+            //main column
           ]),
         ),
       ),
